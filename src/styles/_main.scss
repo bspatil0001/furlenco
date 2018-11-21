@@ -1,0 +1,24 @@
+.main-wrapper{
+    .city-container{
+        ul{
+            padding: 0;
+            li{
+                padding: 15px;
+                margin: 15px 0;
+                border: 1px solid #aaa;
+                display: block;
+                width: 300px;
+                margin: 15px auto;
+                cursor: pointer;
+
+                &:hover{
+                    // transform: scale(1.2, 1.2); 
+                    webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    transition: box-shadow 0.3s ease-in-out;
+                }
+            }
+        }
+    }
+}

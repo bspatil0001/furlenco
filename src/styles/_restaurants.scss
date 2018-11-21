@@ -1,0 +1,46 @@
+.restaurants-wrapper {
+    .restaurants-list {
+      &>ul {
+        padding: 0;
+        li {
+          list-style: none;
+        }
+        &>li {
+          margin-bottom: 24px;
+          padding-bottom: 24px;
+          border-bottom: 1px solid #999;
+          cursor: pointer;
+          &:last-child {
+            border-bottom: none;
+          }
+          img {
+            float: left;
+            height: 150px;
+            width: 200px;
+            background-color: rgb(115, 109, 109);
+            margin-right: 15px;
+          }
+          .restaurant-name {
+            margin-bottom: 10px;
+          }
+          .restaurant-info {
+            ul {
+              li {
+                display: inline-block;
+                &:after {
+                  content: '|';
+                  margin: 0 15px;
+                }
+                &:last-child {
+                  &:after {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,23 @@
+ul {
+    padding: 0;
+    li {
+      margin-bottom: 15px;
+      list-style: none;
+      .reviewer-img {
+        width: 10%;
+        float: left;
+        img {
+          width: 50%;
+          height: auto;
+        }
+      }
+      .review-info {
+          .review-name{
+              font-size: 14px;
+              font-weight: bold;
+          }
+        width: 90%;
+        float: left;
+      }
+    }
+}

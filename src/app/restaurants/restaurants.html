@@ -1,0 +1,27 @@
+<div class="container restaurants-wrapper">
+  <h4>Showing restaurants in
+    <b>{{ main.location }}</b>
+  </h4>
+  <div class="restaurants-list">
+    <ul>
+            <!-- ({bar: [4,5]}) -->
+      <li ng-repeat="res in main.nearby_restaurants" class="clearfix">
+        <a ui-sref="restaurant-info({restaurantid: res.restaurant.R.res_id})">
+          <img src="{{res.restaurant.featured_image}}" alt="">
+          <h5 class="restaurant-name">{{ res.restaurant.name }}</h5>
+          <div class="restaurant-info">
+            <ul>
+              <li>{{res.restaurant.user_rating.aggregate_rating}} Rating</li>
+              <li>{{res.restaurant.user_rating.votes}} Reviews</li>
+            </ul>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <div>
+      <pagination ng-change="pageChanged()" total-items="totalImgs" items-per-page="imgsPerPage" ng-model="currentPage" max-size="totalPages"
+        class="pagination-sm" boundary-links="true">
+      </pagination>
+    </div>
+  </div>
+</div>

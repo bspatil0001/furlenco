@@ -1,0 +1,63 @@
+<div class="container restaurantInfo-wrapper">
+  {{ main.restaurantInfo.R.res_id }}
+  <div class="img-container">
+    {{ main.nearby_restaurants }}
+    <img src="{{ main.restaurantInfo.featured_image }}" alt="">
+  </div>
+
+  <div class="info-container">
+    <div class="restaurantInfo">
+      <h4> {{ main.restaurantInfo.name }} </h4>
+      <ul>
+        <li>{{ main.restaurantInfo.user_rating.aggregate_rating }}</li>
+        <li>{{ main.restaurantInfo.user_rating.votes }}</li>
+      </ul>
+      <button class="btn btn-default">Share</button>
+    </div>
+    <div class="cost-address">
+      <div class="cost">
+        <div class="info">Cost for 2</div>
+        <div class="money">{{ main.restaurantInfo.average_cost_for_two }} Rs</div>
+      </div>
+      <div class="address">
+        <div class="info">Address</div>
+        <div class="address">
+          {{ main.restaurantInfo.location.address }}
+          <br/> {{ main.restaurantInfo.location.locality_verbose }}
+        </div>
+      </div>
+    </div>
+    <div class="photos">
+      <div class="info">Address</div>
+      <ul>
+        <li ng-repeat="i in [1,2,3,4,5,6]">{{i}}</li>
+      </ul>
+    </div>
+    <div class="menu clearfix">
+      <div class="menu-title">
+        Menu
+      </div>
+      <div class="menu-list">
+        <ul>
+          <li ng-repeat="1 in [1,2,3,4]">
+            <div class="menu-item">Menu item 1</div>
+            <div class="menu-desc info">Menu Description</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="reviews clearfix">
+      <div class="review-heading">
+        Ratings
+      </div>
+      <review reviews="main.reviews"></review>
+    </div>
+    <div class="load-more">
+      <a ui-sref="reviews({name: main.restaurantInfo.name, restaurantid: main.restaurantInfo.R.res_id})">
+        <button class="btn btn-primary">
+          Load More
+        </button>
+      </a>
+    </div>
+  </div>
+</div>

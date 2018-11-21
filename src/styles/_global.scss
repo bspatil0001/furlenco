@@ -1,0 +1,23 @@
+.review {
+  ul {
+    padding: 0;
+    li {
+      display: inline-block;
+      &:after {
+        content: '|';
+        margin: 0 15px;
+      }
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.seperator {
+  padding-bottom: 10px;
+  margin: 20px 0;
+  border-bottom: 1px solid #999;
+}

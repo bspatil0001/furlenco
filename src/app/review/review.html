@@ -1,0 +1,16 @@
+<ul>
+  <li ng-repeat="review in reviews" class="clearfix">
+    <div class="reviewer-img">
+      <img src="{{ review.review.user.profile_image }}" class="image-responsive" alt="">
+    </div>
+    <div class="review-info">
+      <h5>{{ review.review.user.name }}</h5>
+      <div class="rating">
+        <span class="" ng-repeat="i in  [1,2,3,4,5]">☆</span>
+      </div>
+      <div>
+        {{ review.review.review_text }}
+      </div>
+    </div>
+  </li>
+</ul>
