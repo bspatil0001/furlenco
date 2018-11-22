@@ -1,5 +1,4 @@
 <div class="container restaurantInfo-wrapper">
-  {{ main.restaurantInfo.R.res_id }}
   <div class="img-container">
     {{ main.nearby_restaurants }}
     <img src="{{ main.restaurantInfo.featured_image }}" alt="">
@@ -11,6 +10,9 @@
       <ul>
         <li>{{ main.restaurantInfo.user_rating.aggregate_rating }}</li>
         <li>{{ main.restaurantInfo.user_rating.votes }}</li>
+        <li>      <span ng-show="main.list.indexOf(main.restaurantInfo.R.res_id) <= -1" ng-click="main.likeRestaurant(true, main.restaurantInfo.R.res_id)">♡</span>
+          <span ng-show="main.list.indexOf(main.restaurantInfo.R.res_id) > -1" ng-click="main.likeRestaurant(false, main.restaurantInfo.R.res_id)">❤</span>
+    </li>
       </ul>
       <button class="btn btn-default">Share</button>
     </div>
@@ -28,7 +30,7 @@
       </div>
     </div>
     <div class="photos">
-      <div class="info">Address</div>
+      <div class="info">Photos</div>
       <ul>
         <li ng-repeat="i in [1,2,3,4,5,6]">{{i}}</li>
       </ul>

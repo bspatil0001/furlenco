@@ -7,15 +7,23 @@
  * Controller of the workplace
  */
 angular.module('workplace')
-  .controller('AllReviewsController', function ($scope, $stateParams, serrviceConnectorFactory) {
+  .controller('AllReviewsController', function ($stateParams, serrviceConnectorFactory) {
     let vm = this;
     vm.total = undefined;
     vm.reviews = [];
 
+    $.fn.isFullyInViewport = function () {
+      let elementTop = $(this).offset().top;
+      let elementBottom = elementTop + $(this).outerHeight();
+      let viewportTop = $(window).scrollTop();
+      let viewportBottom = viewportTop + $(window).height();
+      return elementTop >= viewportTop && elementBottom <= viewportBottom;
+    };
+
     function populateData(){
+      console.log(vm.reviews)
       let temp = vm.reviews.slice(0,5)
       vm.reviews = vm.reviews.concat(temp);
-      $scope.$digest();
     }
 
     function getReviews() {
@@ -25,29 +33,20 @@ angular.module('workplace')
         count: 10
       }, {}, function (data) {
         vm.reviews = vm.reviews.concat(data.user_reviews);
-
-        while(vm.reviews.length < 15){
-          populateData();
-        }
+        console.log(vm.reviews.length)
+        // if(!vm.total || vm.reviews.length < 20){
+        //   populateData()
+        // }
       })
     }
 
     if (!vm.total || vm.reviews.length < 100) {
       getReviews();
-
-      $.fn.isFullyInViewport = function () {
-        let elementTop = $(this).offset().top;
-        let elementBottom = elementTop + $(this).outerHeight();
-        let viewportTop = $(window).scrollTop();
-        let viewportBottom = viewportTop + $(window).height();
-        return elementTop >= viewportTop && elementBottom <= viewportBottom;
-      };
-
       $(window).on('resize scroll', function () {
         $('.last').is(function () {
           if ($(this).isFullyInViewport()) {
             if (!vm.total && vm.reviews.length <= 100) {
-              populateData();             
+              populateData();              
             }
           }
         })

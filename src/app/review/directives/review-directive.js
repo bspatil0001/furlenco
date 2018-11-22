@@ -12,6 +12,9 @@ angular.module('workplace')
       restrict: 'E',
       scope: {
         reviews: '='
-      }
+      },
+      link:function(scope, elem, attr) { 
+        console.log($('.last').is(':visible'));
+       },
     };
   });

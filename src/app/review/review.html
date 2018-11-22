@@ -1,13 +1,13 @@
 <ul>
-  <li ng-repeat="review in reviews" class="clearfix">
+  <li ng-repeat="review in reviews track by $index" class="clearfix" ng-class="{'last':$last}">
     <div class="reviewer-img">
       <img src="{{ review.review.user.profile_image }}" class="image-responsive" alt="">
     </div>
     <div class="review-info">
-      <h5>{{ review.review.user.name }}</h5>
+      <div class="review-name">{{ review.review.user.name }}</div>
       <div class="rating">
-        <span class="" ng-repeat="i in  [1,2,3,4,5]">☆</span>
-      </div>
+        <span class="" ng-repeat="i in [].constructor(review.review.rating) track by $index">&starf;</span>          
+        <span class="" ng-repeat="i in  [].constructor(5-review.review.rating) track by $index">☆</span>
       <div>
         {{ review.review.review_text }}
       </div>

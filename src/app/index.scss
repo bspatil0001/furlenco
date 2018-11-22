@@ -5,11 +5,7 @@
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
 
-@import '../styles/review';
-@import '../styles/global';
-@import '../styles/main';
-@import '../styles/restaurants';
-@import '../styles/restaurantInfo';
+
 
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
@@ -39,3 +35,27 @@ $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
  */
 // injector
 // endinjector
+
+
+
+@import '../styles/review';
+@import '../styles/global';
+@import '../styles/main';
+@import '../styles/restaurants';
+@import '../styles/restaurantInfo';
+
+
+.loading{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+
+  img{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}

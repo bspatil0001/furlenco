@@ -8,11 +8,9 @@
  */
 angular.module('workplace')
   .factory('serrviceConnectorFactory', function ($resource) {
-    // Service logic
-    // ...
-    var $key = 'a1a486e9f860bf0d7c8f4b1f5c9fbc36';
+    var $key = 'cf105cac41336c0fb6ca5c5006faf043';
     var $url = 'https://developers.zomato.com/api/v2.1';
-    // Public API here
+
     return $resource('', null, {
       getEventResult: {
         url: $url+ '/geocode',

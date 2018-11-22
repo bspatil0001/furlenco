@@ -4,18 +4,22 @@
   </h4>
   <div class="restaurants-list">
     <ul>
-            <!-- ({bar: [4,5]}) -->
+      <!-- ({bar: [4,5]}) -->
       <li ng-repeat="res in main.nearby_restaurants" class="clearfix">
+        <img src="{{res.restaurant.featured_image}}" alt="">
         <a ui-sref="restaurant-info({restaurantid: res.restaurant.R.res_id})">
-          <img src="{{res.restaurant.featured_image}}" alt="">
           <h5 class="restaurant-name">{{ res.restaurant.name }}</h5>
-          <div class="restaurant-info">
-            <ul>
-              <li>{{res.restaurant.user_rating.aggregate_rating}} Rating</li>
-              <li>{{res.restaurant.user_rating.votes}} Reviews</li>
-            </ul>
-          </div>
         </a>
+        <div class="restaurant-info">
+          <ul>
+            <li>{{res.restaurant.user_rating.aggregate_rating}} Rating</li>
+            <li>{{res.restaurant.user_rating.votes}} Reviews</li>
+            <li>
+              <span ng-show="main.list.indexOf(res.restaurant.R.res_id) <= -1" ng-click="main.likeRestaurant(true, res.restaurant.R.res_id)">♡</span>
+              <span ng-show="main.list.indexOf(res.restaurant.R.res_id) > -1" ng-click="main.likeRestaurant(false, res.restaurant.R.res_id)">❤</span>
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
     <div>
