@@ -14,7 +14,6 @@ angular.module('workplace')
         reviews: '='
       },
       link:function(scope, elem, attr) { 
-        console.log($('.last').is(':visible'));
        },
     };
   });
