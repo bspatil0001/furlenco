@@ -8,7 +8,7 @@
 angular.module('workplace')
   .directive('review', function () {
     return {
-      templateUrl: '/app/review/review.html',
+      templateUrl: 'app/review/review.html',
       restrict: 'E',
       scope: {
         reviews: '='
